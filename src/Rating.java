@@ -3,7 +3,7 @@
  */
 public class Rating implements Comparable<Rating> {
 
-	private String item;    // a String description of the item being rated
+	private String item;    // a String description of the item being rated (IMDB ID)
 	private double value;   // a double of the actual rating
 
 	public Rating(String anItem, double aValue) {
