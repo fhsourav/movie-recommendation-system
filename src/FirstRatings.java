@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * process the movie and ratings data
+ */
 public class FirstRatings {
 
 	public ArrayList<Movie> loadMovies(String filename) throws IOException {

@@ -37,7 +37,7 @@ public class Movie {
 	 *
 	 * @return ID associated with this item
 	 */
-	public String getId() {
+	public String getID() {
 		return id;
 	}
 
