@@ -36,8 +36,9 @@ public class EfficientRater implements Rater {
 
 	public ArrayList<String> getItemsRated() {
 		ArrayList<String> list = new ArrayList<>();
-		for (int k = 0; k < myRatings.size(); k++) {
-			list.add(myRatings.get(k).getItem());
+
+		for (Rating r : myRatings.values()) {
+			list.add(r.getItem());
 		}
 
 		return list;
