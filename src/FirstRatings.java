@@ -189,7 +189,7 @@ public class FirstRatings {
 			}
 
 			if (!contains) {
-				Rater rater = new Rater(map.get("rater_id")); // creating new rater
+				Rater rater = new PlainRater(map.get("rater_id")); // creating new rater
 				rater.addRating( // adding rating data to the rater
 						map.get("movie_id"),
 						Double.parseDouble(map.get("rating")));
