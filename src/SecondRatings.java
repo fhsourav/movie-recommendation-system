@@ -6,13 +6,13 @@ public class SecondRatings {
 	private ArrayList<Movie> myMovies;
 	private ArrayList<Rater> myRaters;
 
-	public SecondRatings(String moviefile, String ratingsfile) throws IOException {
+	public SecondRatings(String moviefile, String ratingsfile) {
 		FirstRatings fr = new FirstRatings();
 		myMovies = fr.loadMovies(moviefile);
 		myRaters = fr.loadRaters(ratingsfile);
 	}
 
-	public SecondRatings() throws IOException {
+	public SecondRatings() {
 		this("ratedmoviesfull.csv", "ratings.csv");
 	}
 

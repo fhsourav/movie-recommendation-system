@@ -12,14 +12,24 @@ import java.util.HashSet;
  */
 public class FirstRatings {
 
-	public ArrayList<Movie> loadMovies(String filename) throws IOException {
+	public ArrayList<Movie> loadMovies(String filename) {
 		Path p = Paths.get(filename); // filepath
-		BufferedReader reader = Files.newBufferedReader(p); // reading the file
+		BufferedReader reader = null; // reading the file
+		try {
+			reader = Files.newBufferedReader(p);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
 //		ArrayList<HashMap<String, String>> movieData = new ArrayList<>(); // Each entry in the ArrayList represents each movie in the CSV file // update: using ArrayList of type Movie instead
 		ArrayList<Movie> movieData = new ArrayList<>();
 
-		String headers = reader.readLine(); // getting the CSV headers from the first line
+		String headers = null; // getting the CSV headers from the first line
+		try {
+			headers = reader.readLine();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		String[] headerArray = new String[0]; // initializing String array for the headers
 
 		if (headers != null) {
@@ -30,7 +40,12 @@ public class FirstRatings {
 		}
 
 		while (true) { // iterating through the CSV lines in BufferedReader reader
-			String line = reader.readLine();
+			String line = null;
+			try {
+				line = reader.readLine();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 			if (line == null) {
 				break; // iteration stops if line is null
 			}
@@ -81,7 +96,7 @@ public class FirstRatings {
 		return map;
 	}
 
-	public void testLoadMovies() throws IOException {
+	public void testLoadMovies() {
 		ArrayList<Movie> movieList = loadMovies("files/ratedmovies_short.csv");
 		System.out.println("Number of movies:\t" + movieList.size());
 		int comedyCount = 0;
@@ -118,13 +133,23 @@ public class FirstRatings {
 		}
 	}
 
-	public ArrayList<Rater> loadRaters(String filename) throws IOException {
+	public ArrayList<Rater> loadRaters(String filename) {
 		Path p = Paths.get(filename); // filepath
-		BufferedReader reader = Files.newBufferedReader(p); // reading the file
+		BufferedReader reader = null; // reading the file
+		try {
+			reader = Files.newBufferedReader(p);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
 		ArrayList<Rater> raterList = new ArrayList<>(); // Initializing the ArrayList
 
-		String headers = reader.readLine(); // getting the CSV headers from the first line
+		String headers = null; // getting the CSV headers from the first line
+		try {
+			headers = reader.readLine();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		String[] headerArray = new String[0]; // initializing String array for the headers
 
 		if (headers != null) {
@@ -135,7 +160,12 @@ public class FirstRatings {
 		}
 
 		while (true) { // iterating through the CSV lines in BufferedReader reader
-			String line = reader.readLine();
+			String line = null;
+			try {
+				line = reader.readLine();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 			if (line == null) {
 				break; // iteration stops if line is null
 			}
@@ -170,7 +200,7 @@ public class FirstRatings {
 		return raterList; // ultimately returning the ArrayList
 	}
 
-	public void testLoadRaters() throws IOException {
+	public void testLoadRaters() {
 		ArrayList<Rater> raterList = loadRaters("files/ratings_short.csv");
 		System.out.println(raterList.size());
 

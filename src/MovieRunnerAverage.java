@@ -4,7 +4,7 @@ import java.util.Collections;
 
 public class MovieRunnerAverage {
 
-	public void printAverageRatings() throws IOException {
+	public void printAverageRatings() {
 		SecondRatings sr = new SecondRatings("files/ratedmovies_short.csv", "files/ratings_short.csv");
 
 //		System.out.println("Movie size:\t" + sr.getMovieSize());
@@ -18,7 +18,7 @@ public class MovieRunnerAverage {
 		}
 	}
 
-	public void getAverageRatingOneMovie() throws IOException {
+	public void getAverageRatingOneMovie() {
 		SecondRatings sr = new SecondRatings("files/ratedmovies_short.csv", "files/ratings_short.csv");
 
 		ArrayList<Rating> averageRatings = sr.getAvergeRatings(0);
